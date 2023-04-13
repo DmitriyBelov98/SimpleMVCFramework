@@ -17,6 +17,32 @@ Simpe framework for understanding and realize test projects more comfortably
 По стандарту папка *app* для разработки, папка *public* отображения информации.
 * В файле  `config.php` необходимо установить свои значения для инициализации БД и URL проекта.
 * В файле  `public/.httaccess` в *RewriteBase* указать название проекта *projectname*/mvc
+* Модели разрабатываются в соответствующей папке `models`. Для работы с данными требуется экземпляр класса Database.
+ * Контроллеры разрабатываются в соответствующей папке `controllers`. Для работы с представлениями и моделями требуется объявить их экземпляры с наследуемого главного контроллера `Controllers.php`
+ 
+   1. объявление модели для получения доступа к данным.
+``` php
+public function __construct(
+
+    )
+    {
+        $this->userModel = $this->model('Model');
+    }
+ ```
+ 
+ 2. объявление представления для отображения результатов на странице.
+``` php
+Class ClassName extends Controller
+{
+  // загрузить представление (view)
+  $this->view('your/path', $data);
+}
+ ```
+ ---
+
+
+
+ 
 
 * Visit [http://localhost/](http://localhost/)
 * 
